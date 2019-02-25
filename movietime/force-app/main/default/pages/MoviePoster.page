@@ -1,0 +1,3 @@
+<apex:page standardController="Movie__c" showHeader="false" sidebar="false">
+        <apex:image value="{!Movie__c.Poster_Link__c}" Width="203" height="300"/>
+</apex:page>

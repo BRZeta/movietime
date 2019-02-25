@@ -1,0 +1,58 @@
+<apex:page showHeader="false" sidebar="false" docType="html-5.0">
+	<head>
+		<link href="{!URLFOR($Resource.StatsStyle)}" rel="stylesheet"/>
+		<link href="{!URLFOR($Resource.StandardStyle)}" rel="stylesheet"/>
+		<link href="{!URLFOR($Resource.Grid)}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+		<title>Stats</title>
+	</head>
+	
+	<body class="content">
+		<header >
+			<div class="content">
+				<div class="sub_media">
+					<div class="left">
+					  <ul class="primary">
+					      <li>
+					      	<a href="/movienight/home"><apex:image value="{!URLFOR($Resource.MNLogo)}"/></a>
+					      </li>
+					      <li>
+					      	<h1 class="MN-Header">MovieNight</h1>
+					      </li>
+					      <li>
+					        <a href="/movienight/movies">Movies</a>
+					      </li>
+					      <li>
+					        <a href="/movienight/search">Search</a>
+					      </li>
+					      <li>
+					        <a href="/movienight/stats">Stats</a>
+					      </li>
+					      <li>
+					        <a href="/movienight/info">Info</a>
+					      </li>
+					  </ul>
+					</div>
+				</div>
+			</div>
+					
+		</header>
+
+		<div class="backdrop" style="background-image:url({!URLFOR($Resource.StatsImage)})">
+			<div class="info-container row">
+				<div class="col span-1-of-3">
+				</div>
+				<div class="col span-1-of-3">
+					<p>
+					This page is currently under development. <br/>
+					It will eventually show graphs and charts breaking down the movie data.
+					</p>
+				</div>
+				<div class="col span-1-of-3">
+				</div>
+			</div>
+		</div>
+
+	</body>
+	
+</apex:page>

@@ -1,0 +1,294 @@
+<apex:page Controller="MoviesController" showHeader="false" sidebar="false" docType="html-5.0">
+<apex:form >
+<html>
+
+    <head>
+        <link href="{!URLFOR($Resource.MovieNight, 'MovieNight/Grid.css')}" rel="stylesheet"/>
+        <link href="{!URLFOR($Resource.MovieNight, 'MovieNight/style.css')}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"/>
+        <title> Movie Night</title>
+    </head>
+
+    <body>
+        <header>
+        <span id="top"></span>
+            <nav>
+                <div class="row">
+                    <!--<span class="section-selection">
+                        <apex:selectList value="{!section}" multiselect="false" size="1">
+                        	  <apex:outputLabel styleClass="display">&nbsp; DISPLAY SECTIONS: </apex:outputLabel> 
+                        	<apex:selectOptions value="{!items}"/>
+                        	<apex:actionSupport event="onchange" rerender="upcoming-panel, box-office-panel, home-panel, nav-links"/>
+                    	</apex:selectList>
+                    </span>-->
+                <apex:outputPanel id="nav-links" >
+                    <ul class="main-nav">
+                        <li> 
+                            <a href="#top">Top</a> 
+                        </li>
+                        <apex:outputPanel rendered="{!IF(section == 'All', true , false)}"> 
+	                        <li> 
+	                            <a href="#upcoming">Upcoming Movies</a> 
+	                        </li>
+	                        <li> 
+	                            <a href="#suggested">Suggest a Movie!</a> 
+	                        </li>
+	                        <li> 
+	                            <a href="#box">Box Office</a> 
+	                        </li>
+	                        <li> 
+	                            <a href="#home">Home Theater</a> 
+	                        </li>
+                        </apex:outputPanel>
+                    </ul>
+                </apex:outputPanel>    
+                </div>
+            </nav>
+
+            <div class="Landing-Page">
+                <!--<h1>Movie Night</h1>-->
+            </div>
+        </header>
+        
+        <apex:outputPanel id="upcoming-panel">
+        <apex:outputPanel rendered="{!OR(IF(section == 'All', true , false), IF(section == 'Upcoming Movies', true , false))}">
+            <section class="upcoming-section js--upcoming-section" id="upcoming">
+                <div class="row">
+                    <p class="section-title"> Upcoming Movies </p>
+                </div>
+
+                <div class="row movie-grid">
+                    <apex:repeat value="{!NewMovies}" var="nm">
+	                    <apex:outputPanel rendered="{!nm.Location__c == 'Theater'}">
+	                        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+	                            <div class="flipper">
+	                                <div class="front">
+	                                    <apex:image style="border-radius: 10px;" value="{!nm.Poster_Link__c}" width="135" height="200"/>
+	                                </div>
+	                                <div class="back u-back">
+	                                    <div class="u-Title">
+	                                        <p>
+	                                            <apex:outputText value="{!nm.Name}"></apex:outputText>
+	                                        </p>
+	                                    </div>
+	                                    <div class="u-middle-section">
+	                                        <p>
+	                                            Release Date:
+	                                            <br></br>
+	                                            <apex:outputText value="{0, date, MMMM d','  yyyy}">
+	                                                <apex:param value="{!nm.Release_Date__c}" /> 
+	                                            </apex:outputText>
+	                                        </p>
+	                                        <p>
+	                                            <apex:outputText value="{!nm.Anticipation__c}"></apex:outputText>
+	                                        </p>
+	                                    </div>    
+	                                    <div class="m-m-Rating">
+	                                        <p>
+	                                            <apex:image styleclass="rating" value="{! IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 4.75), $Resource.Stars5,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 4.25), $Resource.Stars4_5,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 3.75), $Resource.Stars4,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 3.25), $Resource.Stars3_5,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 2.75), $Resource.Stars3,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 2.25), $Resource.Stars2_5,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 1.75), $Resource.Stars2,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 1.25), $Resource.Stars1_5,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 0.75), $Resource.Stars1,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 0.25), $Resource.Stars_5,
+	                                                                  $Resource.Stars0))))))))))}"/>
+	                                        </p>
+	                                    </div> 
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </apex:outputPanel>    
+                    </apex:repeat>
+                </div>
+            </section>
+        </apex:outputPanel>
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="suggested-panel">
+        <apex:outputPanel rendered="{!OR(IF(section == 'All', true , false), IF(section == 'Suggested Movies', true , false))}">
+            <section class="suggested-section js--suggested-section" id="suggested">
+                <apex:pageMessages id="showmsg"></apex:pageMessages>
+                <div class="row">
+                    <p class="section-title"> Suggested Movies </p>
+                </div>
+
+                <div class="row movie-grid">
+                    <apex:repeat value="{!NewMovies}" var="nm">
+	                    <apex:outputPanel rendered="{!nm.Location__c == 'Home'}">
+	                        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+	                            <div class="flipper">
+	                                <div class="front">
+	                                    <apex:image style="border-radius: 10px;" value="{!nm.Poster_Link__c}" width="135" height="200"/>
+	                                </div>
+	                                <div class="back s-back">
+	                                    <div class="s-Title">
+	                                        <p>
+	                                            <apex:outputText value="{!nm.Name}"></apex:outputText>
+	                                        </p>
+	                                    </div>
+	                                    <div class="s-middle-section">
+	                                        <p>
+	                                            Release Date:
+	                                            <br></br>
+	                                            <apex:outputText value="{0, date, MMMM d','  yyyy}">
+	                                                <apex:param value="{!nm.Release_Date__c}"/> 
+	                                            </apex:outputText>
+	                                        </p>
+	                                        <p>
+	                                            <apex:outputText value="{!nm.Anticipation__c}"></apex:outputText>
+	                                        </p>
+	                                    </div>    
+	                                    <div class="m-m-Rating">
+	                                        <p>
+	                                            <apex:image styleclass="rating" value="{! IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 4.75), $Resource.Stars5,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 4.25), $Resource.Stars4_5,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 3.75), $Resource.Stars4,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 3.25), $Resource.Stars3_5,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 2.75), $Resource.Stars3,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 2.25), $Resource.Stars2_5,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 1.75), $Resource.Stars2,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 1.25), $Resource.Stars1_5,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 0.75), $Resource.Stars1,
+	                                                                  IF(AND(NOT(ISBLANK(nm.Combined_Rating__c)),nm.Combined_Rating__c >= 0.25), $Resource.Stars_5,
+	                                                                  $Resource.Stars0))))))))))}"/>
+	                                        </p>
+	                                    </div> 
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </apex:outputPanel>    
+                    </apex:repeat>
+                </div>
+            </section>
+        </apex:outputPanel>
+        </apex:outputPanel>
+
+        <apex:outputPanel id="box-office-panel">
+        <apex:outputPanel rendered="{!OR(IF(section == 'All', true , false), IF(section == 'Box Office', true , false))}">
+            <section class="box-office-section" id="box">
+                <div class="row">
+                    <p class="section-title"> Box Office </p>
+                </div>
+                <div class="row movie-grid">
+                    <apex:repeat value="{!Movies}" var="m"> 
+                        <apex:outputPanel rendered="{!m.Location__c == 'Theater'}">
+                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <apex:image style="border-radius: 10px;" value="{!m.Poster_Link__c}" width="135" height="200"/>
+                                    </div>
+                                    <div class="back b-back">
+                                        <div class="b-Title">
+                                            <h3>
+                                                <apex:outputText value="{!m.Name}"></apex:outputText>
+                                            </h3>
+                                        </div>
+                                        <div class="b-middle-section">
+                                            <p>
+                                                View Date:
+                                                <br></br>
+                                                <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                                    <apex:param value="{!m.View_Date__c}" /> 
+                                                </apex:outputText>
+                                            </p>
+                                            <p>
+                                                <apex:outputText value="{!m.Money_Rating__c}"></apex:outputText>
+                                            </p>
+                                        </div>    
+                                        <div class="m-m-Rating">
+                                            <p>
+                                                <apex:image styleclass="rating" value="{! IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 4.75), $Resource.Stars5,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 4.25), $Resource.Stars4_5,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 3.75), $Resource.Stars4,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 3.25), $Resource.Stars3_5,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 2.75), $Resource.Stars3,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 2.25), $Resource.Stars2_5,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 1.75), $Resource.Stars2,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 1.25), $Resource.Stars1_5,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 0.75), $Resource.Stars1,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 0.25), $Resource.Stars_5,
+                                                                      $Resource.Stars0))))))))))}"/>
+                                            </p>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:outputPanel>    
+                    </apex:repeat>    
+                </div>
+            </section>
+        </apex:outputPanel>
+        </apex:outputPanel>
+
+        <apex:outputPanel id="home-panel">
+        <apex:outputPanel rendered="{!OR(IF(section == 'All', true , false), IF(section == 'Home Theater', true , false))}">
+            <section class="home-section" id="home">
+                <div class="row">
+                    <p class="section-title"> Home Theater </p>
+                </div>
+                <div class="row movie-grid">
+                    <apex:repeat value="{!Movies}" var="m">
+                        <apex:outputPanel rendered="{!m.Location__c == 'Home'}">
+                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <apex:image style="border-radius: 10px;" value="{!m.Poster_Link__c}" width="135" height="200"/>
+                                    </div>
+                                    <div class="back h-back">
+                                        <div class="h-Title">
+                                            <h3>
+                                                <apex:outputText value="{!m.Name}"></apex:outputText>
+                                            </h3>
+                                        </div>
+                                        <div class="h-middle-section">
+                                            <p>
+                                                View Date:
+                                                <br></br>
+                                                <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                                    <apex:param value="{!m.View_Date__c}"/> 
+                                                </apex:outputText>
+                                            </p>
+                                            <p>
+                                                Release Date:
+                                                <br></br>
+                                                <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                                    <apex:param value="{!m.Release_Date__c}"/> 
+                                                </apex:outputText>
+                                            </p>
+                                        </div>    
+                                        <div class="m-m-Rating">
+                                            <p>
+                                                <apex:image styleclass="rating" value="{! IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 4.75), $Resource.Stars5,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 4.25), $Resource.Stars4_5,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 3.75), $Resource.Stars4,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 3.25), $Resource.Stars3_5,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 2.75), $Resource.Stars3,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 2.25), $Resource.Stars2_5,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 1.75), $Resource.Stars2,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 1.25), $Resource.Stars1_5,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 0.75), $Resource.Stars1,
+                                                                      IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 0.25), $Resource.Stars_5,
+                                                                      $Resource.Stars0))))))))))}"/>
+                                            </p>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:outputPanel>    
+                    </apex:repeat>
+                </div>
+            </section>
+        </apex:outputPanel>
+        </apex:outputPanel>
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"/> 
+    <apex:includeScript value="{!$Resource.WayPoints}"/>
+    <apex:includeScript value="{!$Resource.MovieScript}"/>    
+    </body>
+</html>
+</apex:form>
+</apex:page>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Method__c</fullName>
+    <externalId>false</externalId>
+    <label>Payment Method</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AMC A-List</fullName>
+                <default>false</default>
+                <label>AMC A-List</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Costco Move Ticket</fullName>
+                <default>false</default>
+                <label>Costco Move Ticket</label>
+            </value>
+            <value>
+                <fullName>Cash</fullName>
+                <default>false</default>
+                <label>Cash</label>
+            </value>
+            <value>
+                <fullName>Reward Points</fullName>
+                <default>false</default>
+                <label>Reward Points</label>
+            </value>
+            <value>
+                <fullName>Movie Pass</fullName>
+                <default>false</default>
+                <label>Movie Pass</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

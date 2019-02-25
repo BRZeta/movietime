@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chosen_By__c</fullName>
+    <externalId>false</externalId>
+    <label>Chosen By</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Harimau</fullName>
+                <default>false</default>
+                <label>Harimau</label>
+            </value>
+            <value>
+                <fullName>Baby Harimau</fullName>
+                <default>false</default>
+                <label>Baby Harimau</label>
+            </value>
+            <value>
+                <fullName>Does Not Count</fullName>
+                <default>false</default>
+                <label>Does Not Count</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

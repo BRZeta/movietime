@@ -1,0 +1,97 @@
+<apex:page Controller="SingleMovieController" showHeader="false" sidebar="false" docType="html-5.0">
+<html>
+	<head>
+		<link href="{!URLFOR($Resource.StandardStyle)}" rel="stylesheet"/>
+		<link href="{!URLFOR($Resource.SingleMovie)}" rel="stylesheet"/>
+		<link href="{!URLFOR($Resource.Grid)}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+		<title>{!movie.Name}</title>
+	</head>
+	
+	<body class="content">
+		<header >
+			<div class="content">
+				<div class="sub_media">
+					<div class="left">
+					  <ul class="primary">
+					      <li>
+					      	<a href="/movienight/home"><apex:image value="{!URLFOR($Resource.MNLogo)}"/></a>
+					      </li>
+					      <li>
+					      	<h1 class="MN-Header">MovieNight</h1>
+					      </li>
+					      <li>
+					        <a href="/movienight/movies">Movies</a>
+					      </li>
+					      <li>
+					        <a href="/movienight/search">Search</a>
+					      </li>
+					      <li>
+					        <a href="/movienight/stats">Stats</a>
+					      </li>
+					      <li>
+					        <a href="/movienight/info">Info</a>
+					      </li>
+					  </ul>
+					</div>
+				</div>
+			</div>
+					
+		</header>
+
+		<div class="search-backdrop" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({!movie.Backdrop__c})">
+			<div class="info-container row">
+				<div class="col span-1-of-3">
+					<apex:image style="border-radius: 10px; border: 1px solid white; float: right;" value="{!movie.Poster_Link__c}" width="270" height="400"/>
+				</div>
+				
+				<div class="col span-1-of-3 movie-info">
+				<h1>{!movie.Name}</h1>
+				<p><b>Release Date:</b> 
+					<apex:outputText value="{0, date, MMMM d','  yyyy}">
+					    <apex:param value="{!movie.Release_Date__c}"/> 
+					</apex:outputText>
+				</p>
+				
+				<p class="{!IF(movie.Tagline__c != NULL, '', 'hide')}">{!movie.Tagline__c}</p>
+				
+				<p>{!movie.Overview__c}</p>
+				
+				<p><b>Genres:</b> {!movie.Genres__c}</p> 
+				</div>
+				
+				<div class="col span-1-of-3 stats">
+					<h1>Stats</h1>
+					<p class="{!IF(movie.Anticipation__c != NULL, '', 'hide')}"><b>Anticipation:</b> {!movie.Anticipation__c}</p>
+					<p class="{!IF(movie.View_Date__c != NULL, '', 'hide')}"><b>View Date:</b> 
+						<apex:outputText value="{0, date, MMMM d','  yyyy}">
+						    <apex:param value="{!movie.View_Date__c}"/> 
+						</apex:outputText>
+					</p>
+					<p class="{!IF(movie.Location__c != NULL, '', 'hide')}"><b>Viewing Location:</b> {!movie.Location__c}</p>
+					<p class="{!IF(movie.Theater__c != NULL, '', 'hide')}"><b>Theater:</b> {!movie.Theater__c}</p>
+					<p class="{!IF(movie.Showing__c != NULL, '', 'hide')}"><b>Showing Type:</b> {!movie.Showing__c}</p>
+					<p class="{!IF(movie.Watched__c != NULL, '', 'hide')}"><b>Watched:</b> {!movie.Watched__c}</p>
+					<p class="{!IF(movie.Harimau_Rating__c != NULL, '', 'hide')}"><b>Jose Rating:</b> {!movie.Harimau_Rating__c}</p>
+					<p class="{!IF(movie.Baby_Harimau_Rating__c != NULL, '', 'hide')}"><b>Thu Rating:</b> {!movie.Baby_Harimau_Rating__c}</p>
+					<p class="{!IF(movie.Combined_Rating__c != NULL, '', 'hide')}"><b>Combined Rating:</b> {!movie.Combined_Rating__c}</p>
+					<p class="{!IF(movie.Combined_Rating__c != NULL, '', 'hide')}">
+						<apex:image styleclass="rating" value="{! IF(AND(NOT(ISBLANK(movie.Combined_Rating__c)),movie.Combined_Rating__c >= 4.75), $Resource.Stars5,
+	                                                                  IF(AND(NOT(ISBLANK(movie.Combined_Rating__c)),movie.Combined_Rating__c >= 4.25), $Resource.Stars4_5,
+	                                                                  IF(AND(NOT(ISBLANK(movie.Combined_Rating__c)),movie.Combined_Rating__c >= 3.75), $Resource.Stars4,
+	                                                                  IF(AND(NOT(ISBLANK(movie.Combined_Rating__c)),movie.Combined_Rating__c >= 3.25), $Resource.Stars3_5,
+	                                                                  IF(AND(NOT(ISBLANK(movie.Combined_Rating__c)),movie.Combined_Rating__c >= 2.75), $Resource.Stars3,
+	                                                                  IF(AND(NOT(ISBLANK(movie.Combined_Rating__c)),movie.Combined_Rating__c >= 2.25), $Resource.Stars2_5,
+	                                                                  IF(AND(NOT(ISBLANK(movie.Combined_Rating__c)),movie.Combined_Rating__c >= 1.75), $Resource.Stars2,
+	                                                                  IF(AND(NOT(ISBLANK(movie.Combined_Rating__c)),movie.Combined_Rating__c >= 1.25), $Resource.Stars1_5,
+	                                                                  IF(AND(NOT(ISBLANK(movie.Combined_Rating__c)),movie.Combined_Rating__c >= 0.75), $Resource.Stars1,
+	                                                                  IF(AND(NOT(ISBLANK(movie.Combined_Rating__c)),movie.Combined_Rating__c >= 0.25), $Resource.Stars_5,
+	                                                                  $Resource.Stars0))))))))))}"/>
+					</p>
+					<p class="{!IF(movie.Money_Rating__c != NULL, '', 'hide')}"><b>Money Rating:</b> {!movie.Money_Rating__c}</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+</apex:page>

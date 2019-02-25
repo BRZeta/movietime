@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Get_TMDB_Info</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Get TMDB Info</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Update_Movie?MovieId={!Movie__c.Id}&amp;retURL={!Movie__c.Id}</url>
+</WebLink>

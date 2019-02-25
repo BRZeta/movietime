@@ -1,0 +1,4 @@
+Time to download: {!Movie__c.Name} 
+Home Release Date: {!Movie__c.Home_Release_Date__c}
+
+Download URL: https://rarbg.to/torrents.php?search={!URLENCODE(Movie__c.Name)}

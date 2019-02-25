@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Upcoming_Movies</fullName>
+    <columns>NAME</columns>
+    <columns>Anticipation__c</columns>
+    <columns>Release_Date__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Movie__c.Box_Office</value>
+    </filters>
+    <filters>
+        <field>View_Date__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Upcoming Movies</label>
+</ListView>

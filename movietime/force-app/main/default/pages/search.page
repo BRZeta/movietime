@@ -1,0 +1,119 @@
+<apex:page Controller="MoviesController" showHeader="false" sidebar="false" docType="html-5.0">
+<apex:form >	
+	<head>
+		<link href="{!URLFOR($Resource.StandardStyle)}" rel="stylesheet"/>
+		<link href="{!URLFOR($Resource.SearchStyle)}" rel="stylesheet"/>
+		<link href="{!URLFOR($Resource.Grid)}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+		<title>Search</title>
+	</head>
+	
+	<body class="content">
+		<header >
+			<div class="content">
+				<div class="sub_media">
+					<div class="left">
+						<ul class="primary">
+							<li>
+								<a href="/movienight/home"><apex:image value="{!URLFOR($Resource.MNLogo)}"/></a>
+							</li>
+							<li>
+								<h1 class="MN-Header">MovieNight</h1>
+							</li>
+							<li>
+								<a href="/movienight/movies">Movies</a>
+							</li>
+							<li>
+								<a href="/movienight/search">Search</a>
+							</li>
+							<li>
+								<a href="/movienight/stats">Stats</a>
+							</li>
+							<li>
+								<a href="/movienight/info">Info</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>		
+		</header>
+
+		<div class="backdrop" style="background-image: url({!URLFOR($Resource.SearchImage)})">
+			<div class="info-container row">
+				<apex:outputPanel id="search-panel">
+					<div class="home-section" id="search">
+					
+						<div class="row movie-search">
+		                <apex:outputPanel >
+			               	<div><apex:inputText value="{!movieName}" styleClass="input-box" html-placeholder="Search for Movies by Name, Genre, or Keyword"/></div>
+			                <div><apex:commandLink action="{!searchMovie}" value="Search" reRender="search-panel" styleClass="save-button"/></div>
+		                </apex:outputPanel>
+		                </div>
+
+						<div class="row movie-grid">
+							<apex:repeat value="{!SearchedMovies}" var="m">
+								<div class="top-border">
+		                           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+		                               
+		                               <div class="flipper">
+		                               
+		                                   <div class="front">
+		                                       <apex:image style="border-radius: 10px;" value="{!m.Poster_Link__c}" width="203" height="300"/>
+		                                   </div>
+		                                   
+		                                   <div class="back m-Back">
+		                                       <div class="m-Title">
+		                                           <h3>
+		                                               <apex:outputText value="{!m.Name}"></apex:outputText>
+		                                           </h3>
+		                                       </div>
+		                                       <div class="m-Middle">
+		                                           <p>
+		                                               View Date:
+		                                               <br></br>
+		                                               <apex:outputText value="{0, date, MMMM d','  yyyy}">
+		                                                   <apex:param value="{!m.View_Date__c}"/> 
+		                                               </apex:outputText>
+		                                           </p>
+		                                           <p>
+		                                               Release Date:
+		                                               <br></br>
+		                                               <apex:outputText value="{0, date, MMMM d','  yyyy}">
+		                                                   <apex:param value="{!m.Release_Date__c}"/> 
+		                                               </apex:outputText>
+		                                           </p>
+		                                       </div>    
+		                                       <div class="m-Rating">
+		                                           <p>
+		                                               <apex:image styleclass="Rating-Image" value="{! IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 4.75), $Resource.Stars5,
+		                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 4.25), $Resource.Stars4_5,
+		                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 3.75), $Resource.Stars4,
+		                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 3.25), $Resource.Stars3_5,
+		                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 2.75), $Resource.Stars3,
+		                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 2.25), $Resource.Stars2_5,
+		                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 1.75), $Resource.Stars2,
+		                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 1.25), $Resource.Stars1_5,
+		                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 0.75), $Resource.Stars1,
+		                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 0.25), $Resource.Stars_5,
+		                                                                     $Resource.Stars0))))))))))}"/>
+		                                           </p>
+		                                       </div>
+		                                        
+		                                   </div>
+		                               </div>
+		                           </div>
+		                           <div class="adjacent-info">
+		                           		<br/>
+										<h1><a href="/movienight/movie?TMDB={!m.TMDB_ID__c}">{!m.Name}</a></h1>
+										<p>{!m.Overview__c}</p>
+									</div>
+								</div>
+		                    </apex:repeat>
+		                </div>
+		            </div>
+		        </apex:outputPanel>
+			</div>
+		</div>
+	</body>
+</apex:form>	
+</apex:page>

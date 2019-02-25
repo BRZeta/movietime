@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Update_Movie</name>
+        <label>Update Movie</label>
+        <locationX>267</locationX>
+        <locationY>100</locationY>
+        <actionName>GetMovieInformation</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>movieIds</name>
+            <value>
+                <elementReference>MovieId</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <interviewLabel>Update Movie {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Movie</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Update_Movie</startElementReference>
+    <status>Draft</status>
+    <variables>
+        <name>MovieId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

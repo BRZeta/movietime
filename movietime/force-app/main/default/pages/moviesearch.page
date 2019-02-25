@@ -1,0 +1,166 @@
+<apex:page Controller="MoviesController" showHeader="false" sidebar="false" docType="html-5.0">
+<apex:form >
+<html>
+
+    <head>
+        <link href="{!URLFOR($Resource.MovieNight, 'MovieNight/Grid.css')}" rel="stylesheet"/>
+        <link href="{!URLFOR($Resource.MovieNight, 'MovieNight/style.css')}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"/>
+        
+        <style type="text/css">
+        /* ----------------------------------------------- */
+            /* Flip Effects */
+            /* ----------------------------------------------- */
+
+            /* entire container, keeps perspective */
+            .flip-container {
+                perspective: 1000px;
+                margin: 10px 11px;
+            }
+
+            /* flip the pane when hovered */
+            .flip-container:hover .flipper, .flip-container.hover .flipper {
+                transform: rotateY(180deg);
+            }
+
+            .flip-container, .front, .back {
+                width: 263px;
+                height: 390px;
+                display: inline-block;
+                border-radius: 10px;
+            }
+
+            /* flip speed goes here */
+            .flipper {
+                transition: 0.6s;
+                transform-style: preserve-3d;
+                position: relative;
+            }
+
+            /* hide back of pane during swap */
+            .front, .back {
+                backface-visibility: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            /* front pane, placed above back */
+            .front {
+                z-index: 2;
+                /* for firefox 31 */
+                transform: rotateY(0deg);
+            }
+
+            /* back, initially hidden pane */
+            .back {
+                transform: rotateY(180deg);
+            }
+        </style>
+        <title> Movie Search</title>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <div class="row">
+                <apex:outputPanel id="nav-links" >
+                    <ul class="main-nav">
+                        <li> 
+                            <a href="#top">Top</a> 
+                        </li>
+                        <li> 
+                            <a href="/apex/movies">See All Movies</a> 
+                        </li>
+                        <li> 
+                            <a href="#suggested">Suggest a Movie!</a> 
+                        </li>
+                        <li> 
+                            <a href="#search">Search</a> 
+                        </li>
+                        <li> 
+                            <a href="#home">Home Theater</a> 
+                        </li>
+                    </ul>
+                </apex:outputPanel>    
+                </div>
+            </nav>
+
+            <div class="Landing-Page" id="top">
+                <h1>Search for a Movie!</h1>
+            </div>
+        </header>
+        <apex:outputPanel id="search-panel">
+            <section class="home-section" id="search">
+                <div class="row">
+                    <p class="section-title"> Movie Search </p>
+                </div>
+                
+                <div class="row movie-suggestion">
+                <apex:outputPanel >
+	                <p>Movie Name: 
+	               	<apex:inputText value="{!movieName}" styleClass="input-box"/></p> 
+	                <apex:commandLink action="{!searchMovie}" value="Search" reRender="search-panel" styleClass="save-button"/>
+                </apex:outputPanel>
+                </div>
+                
+                <div class="row movie-grid">
+                    <apex:repeat value="{!SearchedMovies}" var="m">
+                           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                               <div class="flipper">
+                                   <div class="front">
+                                       <apex:image style="border-radius: 10px;" value="{!m.Poster_Link__c}" width="263" height="390"/>
+                                   </div>
+                                   <div class="back h-back">
+                                       <div class="h-Title">
+                                           <h3>
+                                               <apex:outputText value="{!m.Name}"></apex:outputText>
+                                           </h3>
+                                       </div>
+                                       <div class="h-middle-section">
+                                           <p>
+                                               View Date:
+                                               <br></br>
+                                               <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                                   <apex:param value="{!m.View_Date__c}"/> 
+                                               </apex:outputText>
+                                           </p>
+                                           <p>
+                                               Release Date:
+                                               <br></br>
+                                               <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                                   <apex:param value="{!m.Release_Date__c}"/> 
+                                               </apex:outputText>
+                                           </p>
+                                       </div>    
+                                       <div class="m-m-Rating">
+                                           <p>
+                                               <apex:image styleclass="rating" value="{! IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 4.75), $Resource.Stars5,
+                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 4.25), $Resource.Stars4_5,
+                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 3.75), $Resource.Stars4,
+                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 3.25), $Resource.Stars3_5,
+                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 2.75), $Resource.Stars3,
+                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 2.25), $Resource.Stars2_5,
+                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 1.75), $Resource.Stars2,
+                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 1.25), $Resource.Stars1_5,
+                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 0.75), $Resource.Stars1,
+                                                                     IF(AND(NOT(ISBLANK(m.Combined_Rating__c)),m.Combined_Rating__c >= 0.25), $Resource.Stars_5,
+                                                                     $Resource.Stars0))))))))))}"/>
+                                           </p>
+                                       </div> 
+                                   </div>
+                               </div>
+                           </div>  
+                    </apex:repeat>
+                </div>
+            </section>
+        </apex:outputPanel>
+        
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"/> 
+    <apex:includeScript value="{!$Resource.WayPoints}"/>
+    <apex:includeScript value="{!$Resource.MovieScript}"/>    
+    </body>
+</html>
+</apex:form>
+</apex:page>

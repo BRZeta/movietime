@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Money_Rating__c</fullName>
+    <externalId>false</externalId>
+    <label>Money Rating</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Would Pay Again</fullName>
+                <default>false</default>
+                <label>Would Pay Again</label>
+            </value>
+            <value>
+                <fullName>Worth Full Ticket Price</fullName>
+                <default>false</default>
+                <label>Worth Full Ticket Price</label>
+            </value>
+            <value>
+                <fullName>Worth Costco Ticket</fullName>
+                <default>false</default>
+                <label>Worth Costco Ticket</label>
+            </value>
+            <value>
+                <fullName>Worth 5 Dollars</fullName>
+                <default>false</default>
+                <label>Worth 5 Dollars</label>
+            </value>
+            <value>
+                <fullName>Why did I Pay for This?</fullName>
+                <default>false</default>
+                <label>Why did I Pay for This?</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

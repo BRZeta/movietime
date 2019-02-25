@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Combined_Rating__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(Baby_Harimau_Rating__c)),
+(Harimau_Rating__c+Baby_Harimau_Rating__c)/2,
+Harimau_Rating__c)
+
+/*
+IF(
+
+AND(
+NOT(ISBLANK(Baby_Harimau_Rating__c)),
+NOT(ISBLANK(Luis_Rating__c))),
+(Harimau_Rating__c+Baby_Harimau_Rating__c+Luis_Rating__c)/3,
+
+IF(
+NOT(ISBLANK(Baby_Harimau_Rating__c)),
+(Harimau_Rating__c+Baby_Harimau_Rating__c)/2,
+
+IF(
+NOT(ISBLANK(Luis_Rating__c)),
+(Harimau_Rating__c+Luis_Rating__c)/2,
+
+Harimau_Rating__c)))
+*/</formula>
+    <label>Combined Rating</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

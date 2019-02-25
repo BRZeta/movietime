@@ -1,0 +1,343 @@
+/* ----------------------------------------------- */
+/* BASIC SETUP */
+/* ----------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+/* ----------------------------------------------- */
+/* Reusable Classes */
+/* ----------------------------------------------- */
+
+.row {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+section {
+    padding: 50px 0;
+}
+
+.section-title {
+    font-size: 200%;
+    word-spacing: 2px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: #EAC67A;
+}
+
+.section-title:after {
+    display: block;
+    height: 2px;
+    background-color: #c0392b;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.movie-grid {
+    margin-top: 20px;
+}
+
+.m-m-Rating {
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+}
+
+.rating {
+    margin-left: 17px;
+}
+
+/* ----------------------------------------------- */
+/* Landing Page */
+/* ----------------------------------------------- */
+
+header {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(Movie-Night.jpg);
+    background-size: cover;
+	background-position: center;
+	height: 100vh;
+	background-attachment: fixed;
+}
+
+.Landing-Page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+}
+
+h1, 
+.section-title {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    max-width: 90%;
+    color: #fff;
+    font-size: 400%;
+    word-spacing: 3px;
+}
+
+.main-nav {
+    float: right;
+    list-style: none;
+
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-top: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+    transition: color 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    color: #EAC67A;
+    border-bottom: 2px solid #c0392b;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(254, 246, 235, 0.92);
+    box-shadow: 0 2px 2px #BEB9B5;
+    z-index: 9999;
+}
+
+.sticky .main-nav li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+    padding: 8px 0;
+    color: #C25B56;
+}
+
+.sticky .section-selection {
+    margin-top: 10px;
+}
+
+.sticky .display {
+    margin-right: 3px;
+    color: #C25B56;
+}
+
+/* ----------------------------------------------- */
+/* Upcoming Movies Section*/
+/* ----------------------------------------------- */
+
+.upcoming-section {
+    background-color: #233237;
+}
+
+.u-back {
+    background-color: #18121E;
+}
+
+.u-Title {
+    font-size: 75%;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    height: 50px;
+    background-color: #984B43;
+    color: #233237;
+}
+
+.u-middle-section p {
+    font-size: 70%;
+    border-bottom: 1px solid white;
+    text-align: center;
+    border-width: 80%;
+    padding: 10px 0;
+    width: 80%;
+    margin: 0 10%;
+    color: #EAC67A;
+}
+
+/* ----------------------------------------------- */
+/* Box Office Section*/
+/* ----------------------------------------------- */
+
+.box-office-section {
+    background-color: #B7695C;
+}
+
+.b-back {
+    background-color: #CDBB79;
+}
+
+.b-Title {
+    font-size: 75%;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    height: 50px;
+    background-color: #06425C;
+    color: #F2F2F2;
+}
+
+.b-middle-section p {
+    font-size: 70%;
+    border-bottom: 1px solid white;
+    text-align: center;
+    border-width: 80%;
+    padding: 10px 0;
+    width: 80%;
+    margin: 0 10%;
+    color: #B7695C;
+}
+
+/* ----------------------------------------------- */
+/* Home Theater Section*/
+/* ----------------------------------------------- */
+
+.home-section {
+    background-color: #252839;
+}
+
+.h-back {
+    background-color: #f2b632;
+}
+
+.h-Title {
+    font-size: 75%;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    height: 50px;
+    background-color: #677077;
+    color: #252839;
+}
+
+.h-middle-section p {
+    font-size: 70%;
+    border-bottom: 1px solid white;
+    text-align: center;
+    border-width: 80%;
+    padding: 10px 0;
+    width: 80%;
+    margin: 0 10%;
+    color: #252839;
+}
+
+/* ----------------------------------------------- */
+/* Flip Effects */
+/* ----------------------------------------------- */
+
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000px;
+    margin: 10px 11px;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+    width: 135px;
+    height: 200px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
+
+/* ----------------------------------------------- */
+/* Picklists */
+/* ----------------------------------------------- */  
+
+.display {
+    margin-right: 3px;
+    color: #fff;
+}          
+
+.tblYear select,
+.section-selection select {
+  width: 120px;
+  outline: none;
+  border: 1px solid #bbb;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /*background: url('icon/arrow.png') no-repeat;*/
+  background-position: right center;
+  background-size: contain;
+  text-indent: 0.01px;
+  text-overflow: "";
+  padding: 5px;
+}
+
+.section-selection {
+    margin-top: 40px;
+    float: left;
+}

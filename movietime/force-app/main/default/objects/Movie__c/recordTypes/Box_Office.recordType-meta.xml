@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Box_Office</fullName>
+    <active>true</active>
+    <description>Movies that we saw in theaters</description>
+    <label>Box Office</label>
+    <picklistValues>
+        <picklist>Anticipation__c</picklist>
+        <values>
+            <fullName>Find Time For It</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>If There%27s Time</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Looks Fun</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Looks Good</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Must See</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Must See Opening Weekend%21</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Bought_Concessions__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Concessions_Item_s__c</picklist>
+        <values>
+            <fullName>Both</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ICEE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Popcorn</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Genres__c</picklist>
+        <values>
+            <fullName>Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Adventure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Animation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Comedy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Crime</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Documentary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drama</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Family</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fantasy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Horror</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Music</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mystery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Romance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Science Fiction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV Movie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thriller</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>War</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Western</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Location__c</picklist>
+        <values>
+            <fullName>Theater</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Money_Rating__c</picklist>
+        <values>
+            <fullName>Why did I Pay for This%3F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Worth 5 Dollars</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Worth Costco Ticket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Worth Full Ticket Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Would Pay Again</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Method__c</picklist>
+        <values>
+            <fullName>AMC A-List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cash</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Costco Move Ticket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Movie Pass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reward Points</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Showing__c</picklist>
+        <values>
+            <fullName>General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Matinee</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Theater__c</picklist>
+        <values>
+            <fullName>AMC - Bay Street</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AMC - Metreon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Alameda Theatre %26 Cineplex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - Bayfair Mall</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - Daily City</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - Great Mall</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - Hayward</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - Hilltop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - Pleasanton</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - San Mateo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - Tanforan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - Union Landing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - Walnut Creek</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Century - Westfield SF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dinuba</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grand Lake</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regal - Berkeley</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regal - Emery Bay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regal - Fresno</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regal - Hacienda</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regal - Jack London</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regal - Visalia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shattuck Cinema</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Watched__c</picklist>
+        <values>
+            <fullName>Solo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Together</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>With Broskies</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>TMDB_API_Key</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TMDB API Key</shortDescription>
+        <value>cae10587d2fee64ba453c09730ad1e2c</value>
+    </labels>
+</CustomLabels>

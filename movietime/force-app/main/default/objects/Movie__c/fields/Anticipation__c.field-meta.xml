@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Anticipation__c</fullName>
+    <externalId>false</externalId>
+    <label>Anticipation</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Must See Opening Weekend!</fullName>
+                <default>false</default>
+                <label>Must See Opening Weekend!</label>
+            </value>
+            <value>
+                <fullName>Must See</fullName>
+                <default>false</default>
+                <label>Must See</label>
+            </value>
+            <value>
+                <fullName>Looks Good</fullName>
+                <default>false</default>
+                <label>Looks Good</label>
+            </value>
+            <value>
+                <fullName>Looks Fun</fullName>
+                <default>false</default>
+                <label>Looks Fun</label>
+            </value>
+            <value>
+                <fullName>Find Time For It</fullName>
+                <default>false</default>
+                <label>Find Time For It</label>
+            </value>
+            <value>
+                <fullName>If There&#39;s Time</fullName>
+                <default>false</default>
+                <label>If There&#39;s Time</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

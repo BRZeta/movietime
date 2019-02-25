@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Theater__c</fullName>
+    <externalId>false</externalId>
+    <label>Theater</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Location__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alameda Theatre &amp; Cineplex</fullName>
+                <default>false</default>
+                <label>Alameda Theatre &amp; Cineplex</label>
+            </value>
+            <value>
+                <fullName>AMC - Bay Street</fullName>
+                <default>false</default>
+                <label>AMC - Bay Street</label>
+            </value>
+            <value>
+                <fullName>AMC - Metreon</fullName>
+                <default>false</default>
+                <label>AMC - Metreon</label>
+            </value>
+            <value>
+                <fullName>Century - Bayfair Mall</fullName>
+                <default>false</default>
+                <label>Century - Bayfair Mall</label>
+            </value>
+            <value>
+                <fullName>Century - Daily City</fullName>
+                <default>false</default>
+                <label>Century - Daily City</label>
+            </value>
+            <value>
+                <fullName>Century - Great Mall</fullName>
+                <default>false</default>
+                <label>Century - Great Mall</label>
+            </value>
+            <value>
+                <fullName>Century - Hayward</fullName>
+                <default>false</default>
+                <label>Century - Hayward</label>
+            </value>
+            <value>
+                <fullName>Century - Hilltop</fullName>
+                <default>false</default>
+                <label>Century - Hilltop</label>
+            </value>
+            <value>
+                <fullName>Century - Pleasanton</fullName>
+                <default>false</default>
+                <label>Century - Pleasanton</label>
+            </value>
+            <value>
+                <fullName>Century - San Mateo</fullName>
+                <default>false</default>
+                <label>Century - San Mateo</label>
+            </value>
+            <value>
+                <fullName>Century - Tanforan</fullName>
+                <default>false</default>
+                <label>Century - Tanforan</label>
+            </value>
+            <value>
+                <fullName>Century - Union Landing</fullName>
+                <default>false</default>
+                <label>Century - Union Landing</label>
+            </value>
+            <value>
+                <fullName>Century - Walnut Creek</fullName>
+                <default>false</default>
+                <label>Century - Walnut Creek</label>
+            </value>
+            <value>
+                <fullName>Century - Westfield SF</fullName>
+                <default>false</default>
+                <label>Century - Westfield SF</label>
+            </value>
+            <value>
+                <fullName>Dinuba</fullName>
+                <default>false</default>
+                <label>Dinuba</label>
+            </value>
+            <value>
+                <fullName>Grand Lake</fullName>
+                <default>false</default>
+                <label>Grand Lake</label>
+            </value>
+            <value>
+                <fullName>Regal - Berkeley</fullName>
+                <default>false</default>
+                <label>Regal - Berkeley</label>
+            </value>
+            <value>
+                <fullName>Regal - Emery Bay</fullName>
+                <default>false</default>
+                <label>Regal - Emery Bay</label>
+            </value>
+            <value>
+                <fullName>Regal - Fresno</fullName>
+                <default>false</default>
+                <label>Regal - Fresno</label>
+            </value>
+            <value>
+                <fullName>Regal - Hacienda</fullName>
+                <default>false</default>
+                <label>Regal - Hacienda</label>
+            </value>
+            <value>
+                <fullName>Regal - Jack London</fullName>
+                <default>false</default>
+                <label>Regal - Jack London</label>
+            </value>
+            <value>
+                <fullName>Regal - Visalia</fullName>
+                <default>false</default>
+                <label>Regal - Visalia</label>
+            </value>
+            <value>
+                <fullName>Shattuck Cinema</fullName>
+                <default>false</default>
+                <label>Shattuck Cinema</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>Alameda Theatre &amp; Cineplex</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>AMC - Bay Street</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>AMC - Metreon</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>Century - Bayfair Mall</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>Century - Daily City</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>Century - Hayward</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>Century - Union Landing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>Century - Westfield SF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>Grand Lake</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>Regal - Hacienda</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>Regal - Jack London</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Theater</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

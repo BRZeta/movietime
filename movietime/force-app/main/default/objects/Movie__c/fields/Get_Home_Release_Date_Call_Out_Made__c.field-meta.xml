@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Get_Home_Release_Date_Call_Out_Made__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Get Home Release Date Call Out Made</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
