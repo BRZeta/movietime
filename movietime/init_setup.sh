@@ -36,7 +36,7 @@ if [ "${BRANCH_NEEDED}" = "yes" ]
 then  
 	echo "Creating branch."
 	# Git command to create a branch from ice-qa
-	git checkout -b $BRANCH_NAME full-script-test-6
+	git checkout -b $BRANCH_NAME master
 
 	git push --set-upstream origin $BRANCH_NAME
 fi
@@ -120,37 +120,37 @@ echo -e "Source Code deployed successfully"
 echo -e "Deployment End TIme: $end\n"
 
 # Command to import custom settings
-echo -e "Importing Custom Settings\n"
-sfdx force:data:tree:import -f data/Aura_Editability_Control__c.json,data/BQ_SFDC_Mapping__c.json,data/Campaign_Spend_Type_Auto_Default__c.json,data/ChargecodeCostSetup__c.json,data/Country_Item_Inherited_Fields__c.json,data/GEM_Objects_Sharing_Access_Level__c.json,data/GSuite_Profile_Mapping__c.json,data/IPLICR_Default_Approvers__c.json,data/IPLICR_Profile_Mapping__c.json,data/Item_Draft_Required_Fields__c.json,data/ItemSegmentEntryLowLevelMap__c.json,data/Item_Draft_Approver_Profile_List__c.json,data/My_Store_List_View_Display_Fields__c.json,data/National_Campaign_Inherited_Fields__c.json,data/Product2_Inherited_Fields__c.json,data/Product2_Override_Fields__c.json,data/Qualtrics_Language_Mapping__c.json,data/Qualtrics_Survey_Fields__c.json,data/Skip_Validation_Rule__c.json,data/CurrencySymbols1__c.json,data/CurrencySymbols2__c.json,data/CurrencyType.json
+#echo -e "Importing Custom Settings\n"
+#sfdx force:data:tree:import -f data/Aura_Editability_Control__c.json,data/BQ_SFDC_Mapping__c.json,data/Campaign_Spend_Type_Auto_Default__c.json,data/ChargecodeCostSetup__c.json,data/Country_Item_Inherited_Fields__c.json,data/GEM_Objects_Sharing_Access_Level__c.json,data/GSuite_Profile_Mapping__c.json,data/IPLICR_Default_Approvers__c.json,data/IPLICR_Profile_Mapping__c.json,data/Item_Draft_Required_Fields__c.json,data/ItemSegmentEntryLowLevelMap__c.json,data/Item_Draft_Approver_Profile_List__c.json,data/My_Store_List_View_Display_Fields__c.json,data/National_Campaign_Inherited_Fields__c.json,data/Product2_Inherited_Fields__c.json,data/Product2_Override_Fields__c.json,data/Qualtrics_Language_Mapping__c.json,data/Qualtrics_Survey_Fields__c.json,data/Skip_Validation_Rule__c.json,data/CurrencySymbols1__c.json,data/CurrencySymbols2__c.json,data/CurrencyType.json
 
-if [ "$?" = "1" ]
-then 
-	echo "Unable to import Custom Settings"
-	exit 
-fi
-echo -e "Custom Settings imported successfully\n"
+#if [ "$?" = "1" ]
+#then 
+#	echo "Unable to import Custom Settings"
+#	exit 
+#fi
+#echo -e "Custom Settings imported successfully\n"
 
 # Command to import GEM Accounts and Contacts
-echo -e "Importing GEM Accounts and Contacts\n"
-sfdx force:data:tree:import -p data/Account-Contact-plan.json
+#echo -e "Importing GEM Accounts and Contacts\n"
+#sfdx force:data:tree:import -p data/Account-Contact-plan.json
 
-if [ "$?" = "1" ]
-then 
-	echo "Unable to import Accounts and Contacts\n"
-	exit 
-fi
-echo -e "Account and Contacts imported successfully\n"
+#if [ "$?" = "1" ]
+#then 
+#	echo "Unable to import Accounts and Contacts\n"
+#	exit 
+#fi
+#echo -e "Account and Contacts imported successfully\n"
 
 # Command to Assign System Admin Permission Set
-echo -e "Assigning ${PERMSET_NAME} Permission Set\n"
-sfdx force:user:permset:assign -n ${PERMSET_NAME} -u ${ORG_NAME} --json
+#echo -e "Assigning ${PERMSET_NAME} Permission Set\n"
+#sfdx force:user:permset:assign -n ${PERMSET_NAME} -u ${ORG_NAME} --json
 
-if [ "$?" = "1" ]
-then
-	echo "Unable to assign permission set"
-	exit 
-fi	
-echo -e "Permission set assigned successfully\n"
+#if [ "$?" = "1" ]
+#then
+#	echo "Unable to assign permission set"
+#	exit 
+#fi	
+#echo -e "Permission set assigned successfully\n"
 
 if [ "${QUEUES_NEEDED}" = "yes" ]
 then 
@@ -159,6 +159,6 @@ then
 fi
 
 # Git command to reset changed files back
-git reset --hard
+#git reset --hard
 
 echo "Setup Completed Successfully."
